@@ -33,7 +33,7 @@ openXJS.receiveAdCodes({banner1: 1, banner2: 2}, targetingParameters, callback);
 
 ```
 make test
-``
+```
 
 ## Contributing
 
