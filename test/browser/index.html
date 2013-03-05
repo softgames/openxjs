@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
+    <link rel="stylesheet" href="../JSCovReporter/reporter.css" />
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script src="../../node_modules/chai/chai.js"></script>
+    <script src="../../node_modules/sinon/pkg/sinon.js"></script>
+    <script>mocha.setup({ui: 'tdd', globals: ['navigator', 'OA_output']})</script>
+    <!-- Tests -->
+    <script src="../../openxjs.js"></script>
+    <script src="../openxjs_spec.js"></script>
+    <script>
+      onload = function() {
+        if (window.mochaPhantomJS) {
+          mochaPhantomJS.run();
+        } else {
+          mocha.run();
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <div id="coverage"></div>
+    <div id="menu"></div>
+    <div id="fixtures" style="display:none">
+      <div id="banner1"></div>
+      <div id="content">CONTENT</div>
+      <div id="banner2"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "openxjs",
+  "version": "1.0.0",
+  "description": "Advanced OpenX ad loading.",
+  "author": {
+    "name": "Softgames GmbH",
+    "email": "scotty@softgames.de"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/softgames/openxjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/softgames/openxjs/issues"
+  },
+  "devDependencies": {
+    "coffee-script": "1.6.x",
+    "mocha": "*",
+    "chai": "*",
+    "sinon": "*",
+    "mocha-phantomjs": "*"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  }
+}
