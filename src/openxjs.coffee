@@ -1,3 +1,8 @@
+###
+OpenXJS
+Copyright(c) 2013 Softgames GmbH <scotty@softgames.de>
+###
+
 class window.OpenXJS
 
   spcScript : "spc.php"
