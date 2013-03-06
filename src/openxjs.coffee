@@ -9,7 +9,7 @@ class window.OpenXJS
 
   constructor : (options) ->
     @deliveryUrl = options.deliveryUrl
-
+    @defaultParameters = options.parameters
   # Display ads from OpenX
   displayAds : (zonesMapping, parameters, callback) ->
     @receiveAdCodes zonesMapping, parameters, (codes) =>
@@ -49,6 +49,7 @@ class window.OpenXJS
   
   # Create OpenX parameters
   _openxParameters : (zonesMapping, parameters) ->
+    mergedParameters = @_mergeObjects(@defaultParameters, parameters)
     mappingString = "|"
     for target, zone of zonesMapping
       mappingString += "#{target}=#{zone}|"
@@ -63,7 +64,7 @@ class window.OpenXJS
       loc: @_location()
       referer: @_referrer()
 
-    for key, value of parameters
+    for key, value of mergedParameters
       openXParameters[key] = value
     openXParameters
 
@@ -113,3 +114,12 @@ class window.OpenXJS
   _appendToHead : (element) ->
     head = document.head || document.getElementsByTagName( "head" )[0] || document.documentElement
     head.insertBefore element, head.firstChild
+
+  # Merges 2 js objects
+  _mergeObjects : (obj1, obj2) ->
+    obj3 = {}
+    for attrname of obj1
+      obj3[attrname] = obj1[attrname]
+    for attrname of obj2
+      obj3[attrname] = obj2[attrname]
+    obj3

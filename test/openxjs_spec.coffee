@@ -5,7 +5,7 @@ describe "OpenXJS", ->
   openXJS = null
 
   beforeEach ->
-    openXJS = new OpenXJS {deliveryUrl: "http://87.230.102.59:82/openx/www/delivery/"}
+    openXJS = new OpenXJS {deliveryUrl: "http://87.230.102.59:82/openx/www/delivery/", parameters: {}}
 
   describe "displayAds", ->
 
@@ -63,6 +63,17 @@ describe "OpenXJS", ->
         expect(openXJS._loadScript.withArgs("http://87.230.102.59:82/openx/www/delivery/spc.php?queryString").called).to.be.true
         done()
 
+  describe "_openxParameters", ->
+    it "should include passed params", ->
+      openXJS.defaultParameters = {"a" : 1}
+      mergableParams = {"b" : 2}
+      expect(openXJS._openxParameters({}, mergableParams)).contain.keys('a', 'b')
+    
+    it "should overwrite default params", ->
+      openXJS.defaultParameters = {"a" : 1}
+      mergableParams = {"a" : 2}
+      expect(openXJS._openxParameters({}, mergableParams)["a"]).to.equal(2)
+
   describe "_randomNumber", ->
     it "should never be the same", ->
       expect(openXJS._randomNumber()).not.to.equal(openXJS._randomNumber())
@@ -92,3 +103,17 @@ describe "OpenXJS", ->
       expect(openXJS._emptyResponse("<a href=\'F\' target=\'_blank\'><img src=\'F\' border=\'0\' alt=\'\'></a>\n")).to.be.true
     it "should return false if valid response", ->
       expect(openXJS._emptyResponse("ad-code")).to.be.false
+
+  describe "_mergeObjects", ->
+    initialObject = null
+    beforeEach ->
+      initialObject = {a: 1, b: 2}
+
+    it "should merge 2 objects", ->
+      mergableObject = {c: 3, d: 4}
+      expectedResult = {a: 1, b: 2, c: 3, d: 4}
+      expect(openXJS._mergeObjects(initialObject, mergableObject)).to.eql(expectedResult)
+    it "should overwrite if conflict", ->
+      mergableObject = {b: 2, c: 3}
+      expectedResult = {a: 1, b: 2, c: 3}
+      expect(openXJS._mergeObjects(initialObject, mergableObject)).to.eql(expectedResult)      

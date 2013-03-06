@@ -14,6 +14,7 @@ Copyright(c) 2013 Softgames GmbH <scotty@softgames.de>
 
     function OpenXJS(options) {
       this.deliveryUrl = options.deliveryUrl;
+      this.defaultParameters = options.parameters;
     }
 
     OpenXJS.prototype.displayAds = function(zonesMapping, parameters, callback) {
@@ -69,7 +70,8 @@ Copyright(c) 2013 Softgames GmbH <scotty@softgames.de>
     };
 
     OpenXJS.prototype._openxParameters = function(zonesMapping, parameters) {
-      var key, mappingString, openXParameters, target, value, zone;
+      var key, mappingString, mergedParameters, openXParameters, target, value, zone;
+      mergedParameters = this._mergeObjects(this.defaultParameters, parameters);
       mappingString = "|";
       for (target in zonesMapping) {
         zone = zonesMapping[target];
@@ -85,8 +87,8 @@ Copyright(c) 2013 Softgames GmbH <scotty@softgames.de>
         loc: this._location(),
         referer: this._referrer()
       };
-      for (key in parameters) {
-        value = parameters[key];
+      for (key in mergedParameters) {
+        value = mergedParameters[key];
         openXParameters[key] = value;
       }
       return openXParameters;
@@ -154,6 +156,18 @@ Copyright(c) 2013 Softgames GmbH <scotty@softgames.de>
       var head;
       head = document.head || document.getElementsByTagName("head")[0] || document.documentElement;
       return head.insertBefore(element, head.firstChild);
+    };
+
+    OpenXJS.prototype._mergeObjects = function(obj1, obj2) {
+      var attrname, obj3;
+      obj3 = {};
+      for (attrname in obj1) {
+        obj3[attrname] = obj1[attrname];
+      }
+      for (attrname in obj2) {
+        obj3[attrname] = obj2[attrname];
+      }
+      return obj3;
     };
 
     return OpenXJS;
