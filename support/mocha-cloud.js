@@ -85,10 +85,10 @@ cloud.browser('iexplore', '10', 'Windows 2012');
  * iPhone
  */
 
-// cloud.browser('iphone', '4.3', 'Mac 10.6');
+cloud.browser('iphone', '4.3', 'Mac 10.6');
 // cloud.browser('iphone', '5', 'Mac 10.6');
 // cloud.browser('iphone', '5.1', 'Mac 10.8');
-// cloud.browser('iphone', '6', 'Mac 10.8');
+cloud.browser('iphone', '6', 'Mac 10.8');
 
 /*!
  * SauceLabs events

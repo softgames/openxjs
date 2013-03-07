@@ -39,15 +39,9 @@ make test
 1. Setup [Sauce Connect](https://saucelabs.com/connect)
 2. Enter your sauce credentials into `test/auth/sauce.json` in the following format:
 ```
-{
-  "username": "my-user",
-  "key": "my-key"
-}
+{"username": "my-user", "key": "my-key"}
 ```
-3. Run
-```
-node support/mocha-cloud.js
-``
+3. Run `node support/mocha-cloud.js`
 
 ## Contributing
 
