@@ -65,7 +65,7 @@ describe "OpenXJS", ->
     it "should include passed params", ->
       openXJS.defaultParameters = {"a" : 1}
       mergableParams = {"b" : 2}
-      expect(openXJS._openxParameters({}, mergableParams)).contain.keys('a', 'b')
+      expect(openXJS._openxParameters({}, mergableParams)).have.keys('a', 'b')
     
     it "should overwrite default params", ->
       openXJS.defaultParameters = {"a" : 1}

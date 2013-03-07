@@ -10,6 +10,7 @@ class window.OpenXJS
   constructor : (options) ->
     @deliveryUrl = options.deliveryUrl
     @defaultParameters = options.parameters
+    
   # Display ads from OpenX
   displayAds : (zonesMapping, parameters, callback) ->
     @receiveAdCodes zonesMapping, parameters, (codes) =>
