@@ -1,5 +1,6 @@
 # OpenXJS
 [![Dependency Status](https://gemnasium.com/softgames/openxjs.png)](https://gemnasium.com/softgames/openxjs)
+[![Build Status](https://travis-ci.org/softgames/openxjs.png)](https://travis-ci.org/softgames/openxjs)
 
 ## Usage
 
@@ -34,6 +35,14 @@ openXJS.receiveAdCodes({banner1: 1, banner2: 2}, targetingParameters, callback);
 ```
 make test
 ```
+
+### Browser tests
+1. Setup [Sauce Connect](https://saucelabs.com/connect)
+2. Enter your sauce credentials into `test/auth/sauce.json` using the following json:
+```
+{"username": "my-user", "key": "my-key"}
+```
+3. Run `node support/mocha-cloud.js`
 
 ## Contributing
 

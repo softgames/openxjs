@@ -19,9 +19,11 @@
   "devDependencies": {
     "coffee-script": "1.6.x",
     "mocha": "*",
-    "chai": "*",
+    "expect.js": "*",
     "sinon": "*",
-    "mocha-phantomjs": "*"
+    "mocha-phantomjs": "*",
+    "mocha-cloud": "*",
+    "connect": "2.7.x"
   },
   "engines": {
     "node": "0.8.x",
