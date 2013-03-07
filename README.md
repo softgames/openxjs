@@ -1,5 +1,6 @@
 # OpenXJS
 [![Dependency Status](https://gemnasium.com/softgames/openxjs.png)](https://gemnasium.com/softgames/openxjs)
+[![Build Status](https://travis-ci.org/softgames/openxjs.png)](https://travis-ci.org/softgames/openxjs)
 
 ## Usage
 
