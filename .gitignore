@@ -3,3 +3,6 @@ node_modules/
 .DS_Store
 
 test/*_spec.js
+
+test/auth/*
+!test/auth/.gitkeep

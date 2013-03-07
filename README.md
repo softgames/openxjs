@@ -35,6 +35,20 @@ openXJS.receiveAdCodes({banner1: 1, banner2: 2}, targetingParameters, callback);
 make test
 ```
 
+### Cloud tests
+1. Setup [Sauce Connect](https://saucelabs.com/connect)
+2. Enter your sauce credentials into `test/auth/sauce.json` in the following format:
+```
+{
+  "username": "my-user",
+  "key": "my-key"
+}
+```
+3. Run
+```
+node support/mocha-cloud.js
+``
+
 ## Contributing
 
 openxjs is maintained by [Softgames](http://github.com/softgames)
