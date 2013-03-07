@@ -35,9 +35,9 @@ openXJS.receiveAdCodes({banner1: 1, banner2: 2}, targetingParameters, callback);
 make test
 ```
 
-### Cloud tests
+### Browser tests
 1. Setup [Sauce Connect](https://saucelabs.com/connect)
-2. Enter your sauce credentials into `test/auth/sauce.json` in the following format:
+2. Enter your sauce credentials into `test/auth/sauce.json` using the following json:
 ```
 {"username": "my-user", "key": "my-key"}
 ```
