@@ -68,6 +68,7 @@ cloud.browser('firefox', '19', 'Windows 2008');
  * Internet Explorer
  */
 
+cloud.browser('iexplore', '8', 'Windows 2003');
 cloud.browser('iexplore', '9', 'Windows 2008');
 cloud.browser('iexplore', '10', 'Windows 2012');
 

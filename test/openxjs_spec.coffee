@@ -1,5 +1,3 @@
-expect = chai.expect
-
 describe "OpenXJS", ->
 
   openXJS = null
@@ -88,7 +86,10 @@ describe "OpenXJS", ->
 
   describe "_documentCharset", ->
     it "should equal document.charset", ->
-      expect(openXJS._documentCharset()).to.equal(document.characterSet)
+      if document.characterSet
+        expect(openXJS._documentCharset()).to.equal(document.characterSet)
+      else
+        expect(openXJS._documentCharset()).to.equal(document.charset)
 
   describe "_queryString", ->
     it "should return a proper query string", ->
